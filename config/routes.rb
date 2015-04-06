@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  root 'static_pages#home'
+  get 'static_pages/about'
+  get 'static_pages/features'
+  get 'static_pages/contact'
+
   devise_for :users, :controllers => { registrations: 'registrations' }
   resources :projects
 
