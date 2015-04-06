@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @project.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+
+<p>
+  <strong>Employer:</strong>
+  <%= @project.employer %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @project.location %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @project.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @project.phone %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @project.website %>
+</p>
+
+<p>
+  <strong>Dateposted:</strong>
+  <%= @project.datePosted %>
+</p>
+
+<p>
+  <strong>Deadline:</strong>
+  <%= @project.deadline %>
+</p>
+
+<p>
+  <strong>Startdate:</strong>
+  <%= @project.startDate %>
+</p>
+
+<p>
+  <strong>Enddate:</strong>
+  <%= @project.endDate %>
+</p>
+
+<p>
+  <strong>Compensation:</strong>
+  <%= @project.compensation %>
+</p>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
