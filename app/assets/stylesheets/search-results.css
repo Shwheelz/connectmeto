@@ -1,0 +1,25 @@
+
+header {
+    background: #f7f8fa;
+    height: auto;
+}
+
+body {
+    background: #f7f8fa;
+}
+
+.menu-logo {
+    color: #323232;
+}
+
+.menu-logo .strong{
+    color: #008ed6;
+}
+
+#search-box {
+    height: 55px;
+}
+
+#search-button {
+    height: 55px;
+}

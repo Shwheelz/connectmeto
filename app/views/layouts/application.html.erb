@@ -1,21 +1,102 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Connectmeto</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+    <title>Connect Me To - Connecting people</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+
+	<!-- =========================
+	     STYLESHEETS   
+	============================== -->
+	<!-- BOOTSTRAP -->
+	<%= stylesheet_link_tag    'bootstrap.min.css', media: 'all', 'data-turbolinks-track' => true %>
+	<!-- FONT ICONS -->
+	<!-- IonIcons -->
+	<%= stylesheet_link_tag    'ionicons.css', media: 'all', 'data-turbolinks-track' => true %>
+
+	<!-- Font Awesome 
+	<link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+	-->
+
+	<!-- Elegant Icons -->
+	<%= stylesheet_link_tag    'elegant-icons.css', media: 'all', 'data-turbolinks-track' => true %>
+	<!--[if lte IE 7]><script src="assets/elegant-icons/lte-ie7.js"></script><![endif]-->
+
+
+	<!-- COLORS -->
+	<%= stylesheet_link_tag    'blue.css', media: 'all', 'data-turbolinks-track' => true %>
+	<!-- CUSTOM STYLESHEETS -->
+	<%= stylesheet_link_tag    'styles.css', media: 'all', 'data-turbolinks-track' => true %>
+	<!-- RESPONSIVE FIXES -->
+	<%= stylesheet_link_tag    'responsive.css', media: 'all', 'data-turbolinks-track' => true %>
+	<!--[if lt IE 9]>
+				<script src="js/html5shiv.js"></script>
+				<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	<!-- ****************
+      After neccessary customization/modification, Please minify HTML/CSS according to http://browserdiet.com/en/ for better performance
+     **************** -->
+     
+
 </head>
 <body>
-	<% if user_signed_in? %>
-		Logged in as <%= current_user.email %>
-		<%=link_to 'Edit Profile', edit_user_registration_path%>
-		<%link_to 'Logout', destroy_user_session_path, method: :delete%>
-	<% else %>
-		<%= link_to 'Sign up', new_user_registration_path %>
-		<%= link_to 'Login', new_user_session_path %>
-	<% end %>
+	<!-- =========================
+     PRE LOADER       
+	============================== -->
+	<div class="preloader">
+	  <div class="status">&nbsp;</div>
+	</div>
+    
 	<%= yield %>
+
+	<!-- =========================
+	     SECTION 9 - FOOTER 
+	============================== -->
+	<footer class="bgcolor-2">
+	<div class="container">
+		
+		<div class="footer-logo">
+			<h2>Connect<span class="footer-strong">Me</span>To</h2>
+		</div>
+		
+		<div class="copyright">
+			 ©2015 ConnectMeTo
+		</div>
+		
+	</div>
+	</footer>
+
+	<!-- =========================
+	     SCRIPTS   
+	============================== -->
+	<%= javascript_include_tag 'jquery.min.js', 'data-turbolinks-track' => true %>
+	<script>
+		/* =================================
+		   LOADER                     
+		=================================== */
+		// makes sure the whole site is loaded
+		jQuery(window).load(function() {
+			"use strict";
+		        // will first fade out the loading animation
+			jQuery(".status").fadeOut();
+		        // will fade out the whole DIV that covers the website.
+			jQuery(".preloader").delay(1000).fadeOut("slow");
+
+		})
+
+	</script>
+
+	<%= javascript_include_tag 'bootstrap.min.js', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'retina-1.1.0.min.js', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'smoothscroll.js', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'jquery.scrollTo.min.js', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'localScroll.min.js', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'simple-expand.min.js', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'jquery.nav.js', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'jquery.ajaxchimp.min.js', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'custom.js', 'data-turbolinks-track' => true %>
 
 </body>
 </html>
