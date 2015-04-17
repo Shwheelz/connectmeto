@@ -1,54 +1,67 @@
-<h2>Sign up</h2>
+<!-- =========================
+     HEADER   
+============================== -->
+<header id="home">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+<!-- COLOR OVER IMAGE -->
+<div class="color-overlay">
+  
+  <div class="navigation-header">
+    
+    <!-- ONLY LOGO ON HEADER -->
+    <div class="navbar non-sticky">
+      
+      <div class="container">
+        
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html"><h2 class="menu-logo">Connect<span class="strong">Me</span>To</h2></a>
+        </div>
+      </div>
+      <!-- /END CONTAINER -->
+      
+    </div>
+    <!-- /END ONLY LOGO ON HEADER -->
+    
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
+  
+  <!-- HEADING, FEATURES AND REGISTRATION FORM CONTAINER -->
+  <div class="container">
+    
+    <div class="row">
+            
+      <!-- REGISTRATION FORM -->
+      
+      <div class="col-md-12 col-sm-12">
+        
+        <div class="vertical-registration-form">
+          <div class="colored-line">
+          </div>
+          <h3>Create An Account</h3>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "registration-form", id: "register") do |f| %>
+            <%= devise_error_messages! %>
+            <div class="col-md-6 col-sm-6">
+              <%= f.text_field :name, class: "form-control input-box", id: "name", placeholder: "Your Name", autofocus: true %>
+              <%= f.text_field :major, class: "form-control input-box", id: "major", placeholder: "Major" %>
+              <%= f.password_field :password, autocomplete: "off", class: "form-control input-box", id: "password", placeholder: "Password"%>
+            </div>
+            <div class="col-md-6 col-sm-6">
+            <%= f.email_field :email, class: "form-control input-box", id: "email", placeholder: "Email" %>
+            <%= f.text_field :linkedin, class: "form-control input-box", id: "linkedin", placeholder: "LinkedIn" %>
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control input-box", id: "password_confirmation", placeholder: "Confirm Password" %>
+            </div>
+            <%= f.text_area :description, class: "form-control textarea-box", id: "about", placeholder: "Tell us about yourself..." %>
+            <%= f.submit "Get Started", class: "btn standard-button", type: "submit", id: "submit", name: "submit" %>
+          <% end %>
+          <% render "devise/shared/links" %>
+        </div>
+      </div>
+      <!-- /END - REGISTRATION FORM -->
+    </div>
+    
   </div>
+  <!-- /END HEADING, FEATURES AND REGISTRATION FORM CONTAINER -->
+  
+</div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+</header>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :major %><br />
-    <%= f.text_field :major %><br />
-  </div>
-
-  <div class="field">
-    <%= f.label :website %><br />
-    <%= f.text_field :website %><br />
-  </div>
-
-  <div class="field">
-    <%= f.label :linkedin %><br />
-    <%= f.text_field :linkedin %><br />
-  </div>
-
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %><br />
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
