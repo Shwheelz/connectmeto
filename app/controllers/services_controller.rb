@@ -15,7 +15,6 @@ class ServicesController < ApplicationController
   # GET /services/new
   def new
     @service = Service.new
-    @service.user_id = current_user.id
   end
 
   # GET /services/1/edit
@@ -70,6 +69,6 @@ class ServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params.require(:service).permit(:name, :description, :user_id)
+      params.require(:service).permit(:name, :user_id)
     end
 end
