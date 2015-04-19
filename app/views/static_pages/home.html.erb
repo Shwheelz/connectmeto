@@ -83,29 +83,19 @@
                 
                 <!-- SUBSCRIBE FORM -->
                 <div class="row">
-                    <div class="">
-
                         <div class="search-container">
 
-                        <!-- SUBSCRIPTION SUCCESSFUL OR ERROR MESSAGES -->
-                        <h6 class="subscription-success"></h6>
-                        <h6 class="subscription-error"></h6>
-                        <div class="input-group">
                         <!-- SEARCH INPUT BOX -->
-                        	<%= form_tag services_path, method: "get" do %>
-                        		<p>
-                        			<span class="input-group-btn">
-	                        			<%= submit_tag "Browse Services", id: "search-button", class: "btn btn-default standard-button" %>
+                    		<%= form_tag services_path, method: "get" do %>
+                    			<div class="input-group">
+	                    			<%= text_field_tag :search, params[:search], id: "search-box", class: "form-control input-box", placeholder: "Enter Services to Search for..." %>
+	                    			<span class="input-group-btn">
+	                        			<%= submit_tag "Browse Services", id: "search-button", class: "btn btn-default standard-button", style: "margin-top: 0px" %>
 	                        		</span>
-                        			<%= text_field_tag :search, params[:search], id: "search-box", class: "form-control input-box", placeholder: "Enter Services to Search for..." %>
-                        		</p>
+                        		</div>
                         	<% end %>
-                            
-                        </div><!-- /input-group -->
                     
                         </div>
-
-                    </div>
                 </div>
 
 				<p class="sub-heading">
