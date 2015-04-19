@@ -86,20 +86,23 @@
                     <div class="">
 
                         <div class="search-container">
-                        <form class="search-form form-inline" role="form" action="search-results.html">
 
                         <!-- SUBSCRIPTION SUCCESSFUL OR ERROR MESSAGES -->
                         <h6 class="subscription-success"></h6>
                         <h6 class="subscription-error"></h6>
                         <div class="input-group">
                         <!-- SEARCH INPUT BOX -->
-                            <input type="text" name="search" id="search-box" placeholder="Enter Services to Search for..." class="form-control input-box">
-                            <span class="input-group-btn">
-                        <!-- BROWSE BUTTON -->
-                                <button type="submit" id="search-button" class="btn btn-default standard-button">Browse Services</button>
-                            </span>
+                        	<%= form_tag services_path, method: "get" do %>
+                        		<p>
+                        			<span class="input-group-btn">
+	                        			<%= submit_tag "Browse Services", id: "search-button", class: "btn btn-default standard-button" %>
+	                        		</span>
+                        			<%= text_field_tag :search, params[:search], id: "search-box", class: "form-control input-box", placeholder: "Enter Services to Search for..." %>
+                        		</p>
+                        	<% end %>
+                            
                         </div><!-- /input-group -->
-                    </form>
+                    
                         </div>
 
                     </div>
