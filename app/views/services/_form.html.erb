@@ -1,24 +1,75 @@
-<%= form_for(@service) do |f| %>
-  <% if @service.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@service.errors.count, "error") %> prohibited this service from being saved:</h2>
+<header id="home">
 
-      <ul>
-      <% @service.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<!-- COLOR OVER IMAGE -->
+<div class="color-overlay">
+  
+  <div class="navigation-header">
+    
+    <!-- ONLY LOGO ON HEADER -->
+    <div class="navbar non-sticky">
+      
+      <div class="container">
+        
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/"><h2 class="menu-logo">Connect<span class="strong">Me</span>To</h2></a>
+        </div>
+      </div>
+      <!-- /END CONTAINER -->
+      
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <!-- /END ONLY LOGO ON HEADER -->
+    
   </div>
+  
+  <!-- HEADING, FEATURES AND REGISTRATION FORM CONTAINER -->
+  <div class="container">
+    
+    <div class="row">
+            
+      <!-- REGISTRATION FORM -->
+      
+      <div class="col-md-12 col-sm-12">
+        
+        <div class="vertical-registration-form">
+          <div class="colored-line">
+          </div>
+          <h3>Add Skills</h3>
+          <%= form_for(@service) do |f| %>
+            <% if @service.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@service.errors.count, "error") %> prohibited this service from being saved:</h2>
 
-  <%= f.hidden_field :user_id, value: current_user.id %>
-
-  <div class="actions">
-    <%= f.submit %>
+                <ul>
+                  <% @service.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+                </div>
+            <% end %>
+                        <div class="col-lg-12 col-sm-12">
+                            <div class="col-lg-2 col-sm-3"></div>
+                            <div class="col-lg-8 col-sm-6" style="margin-bottom: 15px;">
+                                <div class="input-group">
+                                  <%= f.text_field :name, class: "form-control", id: "skills-box", placeholder: "Skill..." %>
+                                  <%= f.hidden_field :user_id, value: current_user.id %>
+                                  <span class="input-group-btn">
+                                    <%= f.submit "+", id: "skills-button", class: "btn btn-default skill-button" %>
+                                  </span>
+                                </div><!-- /input-group -->
+                            </div>
+                            <div class="col-lg-2 col-sm-3"></div>
+                        </div>
+                        <a href="/"><button class="btn standard-button" id="submit" name="submit">Done</button></a>
+          <% end %>
+        </div>
+      </div>
+      <!-- /END - REGISTRATION FORM -->
+    </div>
+    
   </div>
-<% end %>
+  <!-- /END HEADING, FEATURES AND REGISTRATION FORM CONTAINER -->
+  
+</div>
+
+</header>
+

@@ -1,67 +1,76 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<header id="home">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+<!-- COLOR OVER IMAGE -->
+<div class="color-overlay">
+  
+  <div class="navigation-header">
+    
+    <!-- ONLY LOGO ON HEADER -->
+    <div class="navbar non-sticky">
+      
+      <div class="container">
+        
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/"><h2 class="menu-logo">Connect<span class="strong">Me</span>To</h2></a>
+        </div>
+      </div>
+      <!-- /END CONTAINER -->
+      
+    </div>
+    <!-- /END ONLY LOGO ON HEADER -->
+    
   </div>
+  
+  <!-- HEADING, FEATURES AND REGISTRATION FORM CONTAINER -->
+  <div class="container">
+    
+    <div class="row">
+            
+      <!-- REGISTRATION FORM -->
+      
+      <div class="col-md-12 col-sm-12">
+        
+        <div class="vertical-registration-form">
+          <div class="colored-line">
+          </div>
+          <h3>Edit Profile</h3>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: "put" }) do |f| %>
+                        <div class="col-md-6 col-sm-6">
+                          <%= f.text_field :name, class: "form-control input-box", id: "name", placeholder: "name", tabindex: "1", autofocus: true %>
+                          <%= f.text_field :major, class: "form-control input-box", id: "major", placeholder: "major", tabindex: "3" %>
+                          <%= f.password_field :password, class: "form-control input-box", id: "password", placeholder: "New Password", tabindex: "5", autocomplete: "off" %>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                          <%= f.email_field :email, class: "form-control input-box", id: "email", placeholder: "Email", tabindex: "2" %>
+                          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                          <% end %>
+                          <%= f.text_field :linkedin, class: "form-control input-box", id: "linkedin", placeholder: "LinkedIn", tabindex: "4" %>
+                          <%= f.password_field :password_confirmation, class: "form-control input-box", placeholder: "Confirm new password", tabindex: "6", autocomplete: "off" %>
+                        </div>
+                        <%= f.text_area :description, class: "form-control textarea-box", id: "about", placeholder: "Tell us about yourself...", tabindex: "7" %>
+                        <div class="col-md-12 col-sm-12">
+                          <%= f.label :current_password %>* <i>(we need your current password to confirm your changes)</i>
+                          <%= f.password_field :current_password, class: "form-control input-box", tabindex: "8", autocomplete: "off" %>
+                        </div>
+                        <%= f.submit "Update", class: "btn standard-button", id: "submit", tabindex: "9" %>
+          <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
+          <%= link_to "Add Services", services_path %>
+
+          <h5>Cancel my account</h5>
+
+          <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+
+          <%= link_to "Back", :back %>
+        </div>
+      </div>
+      <!-- /END - REGISTRATION FORM -->
+    </div>
+    
   </div>
+  <!-- /END HEADING, FEATURES AND REGISTRATION FORM CONTAINER -->
+  
+</div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :major %><br />
-    <%= f.text_field :major %>
-  </div>
-
-  <div class="field">
-    <%= f.label :website %><br />
-    <%= f.text_field :website %>
-  </div>
-
-  <div class="field">
-    <%= f.label :linkedin %><br />
-    <%= f.text_field :linkedin %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<%= link_to "Add Services", services_path %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</header>

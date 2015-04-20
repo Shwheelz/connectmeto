@@ -28,7 +28,8 @@ class ServicesController < ApplicationController
 
     respond_to do |format|
       if @service.save
-        format.html { redirect_to @service, notice: 'Service was successfully created.' }
+        flash[:success] = "Added #{@service.name}"
+        format.html { redirect_to action: "new", notice: 'Service was successfully created.' }
         format.json { render :show, status: :created, location: @service }
       else
         format.html { render :new }

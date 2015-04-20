@@ -1,5 +1,6 @@
-<h1>New Service</h1>
-
+<% flash.each do |message_type, message| %>
+	<div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
 <%= render 'form' %>
 
 <%= link_to 'Back', services_path %>
