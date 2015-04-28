@@ -51,7 +51,6 @@
                             <div class="col-lg-8 col-sm-6" style="margin-bottom: 15px;">
                                 <div class="input-group">
                                   <%= f.text_field :name, class: "form-control", id: "skills-box", placeholder: "Skill..." %>
-                                  <%= f.hidden_field :user_id, value: current_user.id %>
                                   <span class="input-group-btn">
                                     <%= f.submit "+", id: "skills-button", class: "btn btn-default skill-button" %>
                                   </span>
