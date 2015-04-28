@@ -1,6 +1,27 @@
 
+<div class="navigation-header">
+  <div class="navbar non-sticky">
+    <div class="container">
+      <div class="col-lg-3 navbar-header">
+        <a class="navbar-brand" href="/"><h2 class="menu-logo" style="color: #323232;">Connect<span class="strong">Me</span>To</h2></a>
+      </div>
+      <!-- SEARCH INPUT BOX -->
+      <%= form_tag services_path, class: "form-inline", method: "get" do %>
+        <div class="col-lg-6">
+          <div class="input-group">
+            <%= text_field_tag :search, params[:search], id: "search-box", class: "form-control input-box", placeholder: "Search for..." %>
+            <span class="input-group-btn">
+                <%= submit_tag "Search", id: "search-button", class: "btn btn-default search-button", style: "margin-top: 0px" %>
+            </span>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<div class="page_wrapper" style="padding-bottom: 500px">
+
+<div class="page_wrapper" style="padding-bottom: 500px; padding-top: 70px">
   <div class="usquare_module_wrapper usquare_logos_style">
     <div class="usquare_module_shade"></div>
 
